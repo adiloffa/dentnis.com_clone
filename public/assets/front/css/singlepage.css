@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+.single-page {
+    width: 100%;
+
+    .top {
+        width: 100%;
+        height: 350px;
+        background: url("https://dentnis.com/wp-content/uploads/2019/12/dentnis-purple-background.jpg");
+        display: flex;
+        align-items: center;
+        padding: 50px;
+        position: relative;
+
+        & p, & h1 {
+            /*position: relative;*/
+            /*left: 2%;*/
+            /*top: 35%;*/
+            font-family: Quicksand, serif;
+            color: #FFFFFF;
+        }
+
+        & img {
+            position: absolute;
+            top: 20%;
+            left: 62.5%;
+            width: 500px;
+            height: 333px;
+        }
+    }
+
+    .container-singlepage {
+        width: 95%;
+        /*height: max-content;*/
+        margin: 100px auto 20px;
+        /*flex-wrap: wrap;*/
+
+        & p {
+            width: 100%;
+            font-family: "Helvetica Neue", serif;
+        }
+    }
+
+    .others-section {
+        width: 100%;
+        margin: 0 auto;
+        height: max-content;
+        background-color: #f7f7f7;
+        text-align: center;
+        padding: 30px 0;
+
+        & h1 {
+            color: #d14891;
+            font-family: "Helvetica Neue", serif;
+        }
+
+        .cols {
+            width: 93%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 30px auto 100px;
+
+
+            & a {
+                width: 31%;
+                border: 1px solid #d9d9d9;
+                background-color: #ffffff;
+                text-decoration: none;
+
+                & .article-title {
+                    padding: 30px;
+                    text-align: left;
+                    color: #d14891;
+                    font-family: "Helvetica Neue", serif;
+                    font-size: 20px;
+                }
+
+                & img {
+                    width: 100%;
+                    height: 240px;
+                }
+            }
+
+            & a:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .sub-footer {
+        border-top: 1px solid #d14891;
+        height: 100px;
+        padding-top: 40px;
+
+        .sub-footer-content {
+            width: 20%;
+            font-family: "Helvetica Neue", serif;
+            font-size: 16px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-left: 50px;
+
+            & i {
+                padding-top: 3px;
+                color: #ada1aa;
+            }
+
+            & span {
+                color: #a64c94;
+            }
+        }
+    }
+}
+

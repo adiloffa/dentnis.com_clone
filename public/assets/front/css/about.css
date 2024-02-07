@@ -1,0 +1,66 @@
+.all {
+    .navall {
+        padding: 30px 0;
+        background-image: url("https://dentnis.com/wp-content/uploads/2019/12/dentnis-purple-background.jpg");
+        background-size: cover !important;
+        background-position: center;
+    }
+
+    .subhover {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+
+        > h1 {
+            font-size: 32px !important;
+            font-weight: 500;
+        }
+    }
+
+    .wraparrall {
+        padding: 60px;
+    }
+
+    .about {
+        color: #d14891;
+        margin-bottom: -10px;
+        line-height: 34px;
+    }
+
+    & swiper-container {
+        width: 50%;
+        height: 50%;
+        float: right;
+    }
+
+    & swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & swiper-slide img {
+        display: block;
+        width: 90%;
+        height: 90%;
+        object-fit: cover;
+    }
+
+    & ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        font-size: 18px;
+    }
+
+    & li {
+        margin-bottom: 5px;
+    }
+
+    .iframe {
+        padding-left: 78.2px;
+        padding-right: 78px;
+    }
+}

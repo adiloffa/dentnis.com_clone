@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+body{
+    display: flex;
+    flex-direction: row;
+}
+
+/*Side-bar*/
+
+.side-bar {
+    float: left;
+    width: 30%;
+    min-height: 100vh;
+    background: #0d0c1d;
+    color: #FFFFFF;
+    padding: 5px 0;
+    & h2 {
+        text-align: center;
+    }
+    & nav {
+        margin: 40px 0;
+        line-height: 60px;
+        > ul {
+            margin-left: -30px;
+            > a {
+                text-decoration: none;
+                color: #FFFFFF;
+                > li {    /*Dashboard*/
+                    list-style: none;
+                    border-bottom: 1px solid white;
+                    padding: 5px 20px;
+                }
+            }
+            > .pages {
+                list-style: none;
+                border-bottom: 1px solid white;
+                padding: 5px 20px;
+                > a{
+                    text-decoration: none;
+                    color: #FFFFFF;
+                }
+                > ul{
+                    margin-left: -30px;
+                    > a{
+                        text-decoration: none;
+                        color: #FFFFFF;
+                        > li{
+                            list-style: none;
+                            padding: 5px 20px;
+                        }
+                        &:not(:last-child) > li {
+                            border-bottom: 1px solid white;
+                        }
+                    }
+                }
+            }
+        }
+        & i{
+            width: 20px;
+            margin-right: 20px;
+        }
+
+        & a:hover > li {
+            background-color: #FFFFFF;
+            border-right: 1px solid #0d1b2a;
+            > span, > i {
+                color: #0d1b2a;
+            }
+        }
+
+        .pages .sub-nav {
+            display: none;
+        }
+
+        .pages:hover .sub-nav {
+            display: block;
+        }
+    }
+}
+
+/*Content*/
+
+.content {
+    width: 100%;
+    padding: 20px;
+    /*margin-left: 500px;*/
+    /*position: fixed;*/
+    & .top{
+        margin-bottom: 20px;
+        > h1{
+            color: #161b33;
+            font-weight: bolder;
+        }
+        > .add-button{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 8px;
+            width: 10%;
+            padding: 10px 10px;
+            color: #FFFFFF;
+            background: linear-gradient(326deg, rgba(166,156,172,1) 0%, rgba(71,73,115,1) 80%);
+            cursor: pointer;
+            text-decoration: none;
+            transition: box-shadow 0.3s;
+        }
+        .add-button:hover {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    & table{
+        width: 100%;
+        border-collapse: collapse;
+        & td, & th {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        & .edit-delete {
+            width: 200px;
+            text-align: center;
+            & button {
+                color: #FFFFFF;
+                border: transparent;
+                padding: 6px;
+                border-radius: 6px;
+            }
+            > a > button {
+                background-color: #a69cac;
+            }
+            > form >button {
+                background-color: #474973;
+            }
+        }
+        & thead {
+            background-color: #474973;
+            color: #FFFFFF;
+        }
+        & tr:not(:last-child):hover{
+            background-color: #e8eddf;
+        }
+        & i {
+            margin-right: 5px;
+        }
+        & img {
+            width: 80px
+        }
+    }
+}
+
+.dashboard-content {
+    width: 100%;
+    padding: 50px;
+    margin-top: 50px;
+    /*border: 1px solid red;*/
+    /*background-color: red;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    > img{
+        top: 20%;
+        right: 10%;
+        position: absolute;
+        width: 200px;
+    }
+    > p{
+        font-size: 50px;
+        > span {
+            background: linear-gradient(to right, #474973, #a69cac);
+            -webkit-background-clip: text;
+            color: transparent;
+            /*color: #474973;*/
+            font-weight: bolder;
+        }
+    }
+}

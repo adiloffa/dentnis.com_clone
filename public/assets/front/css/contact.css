@@ -1,0 +1,200 @@
+.contact {
+    height: auto;
+    .subheader {
+        background: url(../images/purple-background.png);
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        background-position: center;
+        width: 100%;
+        padding: 30px 0;
+
+        .container1 {
+            width: 80%;
+            margin: 0 auto;
+
+            .columnOne{
+                text-align: center;
+                width: 100%;
+                >h1{
+                    color: white;
+                }
+                >ul{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    >li {
+                        list-style-type: none;
+                        >a {
+                            color: white;
+                            font-size: 20px;
+
+                        }
+                    }
+
+                    >span{
+                        padding: 0 10px ;
+                        >i{
+                            color: white;
+                            opacity: .4;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .section1{
+        width: 90%;
+        margin: 0 auto;
+        padding: 90px 0  40px 0;
+        display: flex;
+        justify-content: space-between;
+        .row1{
+            width: 49%;
+            display: flex;
+            flex-direction: column;
+
+            > form {
+                >div {
+                    display: flex;
+                    justify-content: space-between;
+
+                    > input {
+                        width: 48%;
+                        margin-bottom: 40px;
+                        padding: 10px;
+                        border: 1px solid #c2c0c0;
+                        border-radius: 10px;
+                        color: #333;
+                    }
+                    > input[type="number"]::-webkit-inner-spin-button,
+                    > input[type="number"]::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    >input[type="number"] {
+                        -moz-appearance: textfield;
+                        appearance: textfield;
+                    }
+                    >input[type="number"] {
+                        -moz-appearance: textfield;
+                        appearance: textfield;
+                    }
+
+                    >input[type="number"]::-webkit-inner-spin-button,
+                    >input[type="number"]::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+                >input{
+                    width: 100%;
+                    margin-bottom: 40px;
+                    padding: 10px;
+                    border: 1px solid #c2c0c0;
+                    border-radius: 10px;
+                    color: #333;
+                }
+                >textarea{
+                    width: 100%;
+                    margin-bottom: 20px;
+                    padding: 10px;
+                    border: 1px solid #c2c0c0;
+                    border-radius: 10px;
+                    color: #333;
+                    font-weight: 100;
+                }
+                >label{
+                    display: block;
+                    text-align: left;
+                }
+                >button{
+                    display: block;
+                    width: 100%;
+                    background-color: #a54a97;
+                    padding: 15px;
+                    color: white;
+                    margin: 20px 0 40px;
+                    border: none;
+                    font-weight: 100;
+                }
+            }
+
+            .errMessage{
+                border: 1px solid #ffb900;
+                padding: 5px 10px;
+                justify-content: flex-start;
+            }
+        }
+        .row2{
+            width: 49%;
+
+            >iframe{
+                width: 100%;
+            }
+        }
+    }
+
+    .section2{
+        width: 90%;
+        margin: 50px auto 100px;
+        display: flex;
+        justify-content: space-between;
+
+
+        .row1{
+            padding: 45px 40px 25px;
+            background-color: #c64793;
+            color: white;
+            border-radius: 10px;
+            width: 65%;
+            line-height: 30px;
+            font-size: 16px;
+            letter-spacing: 0;
+            font-weight: bold;
+
+            >h3{
+                margin-bottom: 20px;
+            }
+            >p{
+                color: white;
+                >a{
+                    color: #dcc6c6;;
+                }
+            }
+        }
+
+        >span {
+            width: 34%;
+            .row2 {
+                padding: 45px 40px 65px;
+                background-color: #c64793;
+                color: white;
+                border-radius: 10px;
+                width: 100%;
+                line-height: 30px;
+                font-size: 16px;
+                letter-spacing: 0;
+                font-weight: bold;
+
+                > h3 {
+                    margin-bottom: 20px;
+                }
+
+                > p {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .d-none{
+        display: none;
+    }
+    .d-block{
+        display: block;
+    }
+}
