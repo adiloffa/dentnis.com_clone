@@ -197,4 +197,29 @@
     .d-block{
         display: block;
     }
+
+    @media screen and (max-width: 768px) {
+
+        .section1 {
+            width: 90%;
+            flex-direction: column;
+
+            .row1 {
+                width: 100%;
+            }
+        }
+        .section2 {
+            width: 100% !important;
+            flex-direction: column;
+        }
+        span {
+            width: 100% !important;
+
+        }
+        .row1,.row2 {
+            width: 90% !important;
+            /*margin: 10px 0;*/
+            margin: 10px auto;
+        }
+    }
 }

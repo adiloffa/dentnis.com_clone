@@ -1,42 +1,94 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.under-nav {
-    height: 128px;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+.article-container{
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url("../images/purple-background.png");
-    padding: 30px 0;
-    color: white;
-    > .content {
+
+    >.top {
+        width: 100%;
+        height: 150px;
+        background: url("https://dentnis.com/wp-content/uploads/2019/12/dentnis-purple-background.jpg");
         display: flex;
         flex-direction: column;
-        > .top-title {
+        align-items: center;
+        /*padding: 50px;*/
+        position: relative;
+        /*color: white;*/
+        padding: 30px 0;
+        > .top-title{
             font-size: 36px;
             display: flex;
             justify-content: center;
             align-items: center;
+            color: white;
         }
-        > .bottom-title {
+        > .bottom-title{
             display: flex;
             font-size: 22px;
             margin-top: 10px;
-            > .bottom-left, .bottom-right {
+            > .bottom-text{
                 padding: 0 20px;
                 > a{
+                    font-size: 16px;
                     color: white;
+                    text-decoration: none;
                 }
             }
+            > .icon{
+                color: white;
+                font-weight: lighter;
+            }
+        }
+    }
+
+    > .container-article{
+        display: flex;
+        justify-content: center;
+        > .all-article {
+            display: flex;
+            justify-content: flex-start;
+            width: 90%;
+            flex-wrap: wrap;
+            margin-top: 60px;
+            gap: 30px;
+            margin-bottom: 55px;
+            > .card {
+                min-width: 31.33%;
+                border: none !important;
+                > iframe {
+                    width: 100%;
+                }
+            }
+        }
+        > .video-title {
+            padding-top: 10px;
+            font-size: 16px;
+            width: 100%;
         }
     }
 }
 
-.container-article .video-title {
-    padding-top: 10px;
-    font-size: 16px;
+@media screen and (max-width: 768px) {
+    .article-container {
+        > .top {
+            padding: 20px 0;
+            > .top-title {
+                font-size: 28px;
+            }
+            > .bottom-title {
+                font-size: 18px;
+            }
+        }
+        > .container-article {
+            > .all-article {
+                > .card {
+                    min-width: 100%; /* Full width on small screens */
+                    > iframe {
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    }
+
 }
 

@@ -149,4 +149,5 @@ class MainController extends Controller
         }])->get();
         return view('Front.pages.articles',compact('blogs'));
     }
+
 }

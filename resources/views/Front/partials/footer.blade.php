@@ -1,11 +1,12 @@
 <footer class="footerMain">
     <div class="top-footer">
         <h2>{{__("Diş Estetiği ile ilgili sorunlarınız mı var?")}}</h2>
-        <a>{{__("Bize Ulaşın")}}</a>
+        <a href="{{ route('contact') }}">{{__("Bize Ulaşın")}}</a>
     </div>
     <div class="bottom-footer">
         <div class="upper">
             @foreach($setting as $item)
+{{--                @dd($item)--}}
             <div class="logo-part">
                 <img src="{{Storage::url($item->bottom_logo)}}" alt="">
                 <div class="address">
@@ -16,10 +17,12 @@
             </div>
             @endforeach
             @foreach($blogs->shuffle()->chunk(5) as $column)
+{{--                @dd($column)--}}
             <div class="titles-part">
                     <div class="column">
                         @foreach($column as $blog)
-                            <p><a href="" class="footer-li">{{$blog->translations->first()->title}}</a></p>
+{{--                            @dd($blog)--}}
+                            <p><a href="{{route('singlePage', ['slug'=>$blog->slug])}}" class="footer-li">{{$blog->translations->first()->title}}</a></p>
                         @endforeach
                     </div>
             </div>

@@ -5,8 +5,7 @@
         <div class="navall">
             <div class="subhover">
                 <h1 class="title" style="font-size: 16px">Dr. Abdulkadir Narin</h1>
-                <a href=""
-                   style="font-size: 16px; color: white; margin-right:20px;text-decoration: none">{{__("Anasayfa")}}</a>
+                <a href="{{route('front.main')}}" style="font-size: 16px; color: white; margin-right:20px;text-decoration: none">{{__("Anasayfa")}}</a>
                 <span style="font-size: 16px;margin-right:15px ">></span>
                 <span style="font-size: 16px">Dr. Abdulkadir Narin</span>
             </div>

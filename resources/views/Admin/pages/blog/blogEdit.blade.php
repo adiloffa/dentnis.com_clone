@@ -24,19 +24,19 @@
                     <div class="card-body">
                         <div class="tab-content" id="custom-tabs-one-tabContent">
                             @php
+//                                dd($allCategories);  //hamisini getirir, translationlar da
                                 $categoryTranslation =[];
                                    foreach ($allCategories as $aCategory){
-                                    $categoryTranslation[] = $aCategory->first()->translations
+                                    $categoryTranslation[] = $aCategory->translations
                                         ->where('language.lang', 'tr')->first();
                                     }
-//                                    dd($categoryTranslation);
+//                                    dd($aCategory->translations);
 //                                    $categoryTranslation->category_id  bu ile $blog->category_id = dise bunu yazacam
 //                                       echo '<pre>';
 //                                       print_r($categoryTranslation);
                             @endphp
 
                             @foreach(config('app.languages') as $index => $language)
-
                                 @php
                                     // Dil için ilgili çeviriyi bul
                                     $blogTranslation = $blog->translations
@@ -72,7 +72,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group my-3">
                     <label for="categorySelect">Category</label>
                     <select name="category" class="form-control" id="categorySelect">

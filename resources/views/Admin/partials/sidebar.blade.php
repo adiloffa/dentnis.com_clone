@@ -102,6 +102,12 @@
                             <span>About Menu</span>
                         </li>
                     </a>
+                    <a href="{{route('show-message')}}">
+                        <li>
+                            <i class="fa-solid fa-message"></i>
+                            <span>Contact messages</span>
+                        </li>
+                    </a>
                 </ul>
             </li>
             <a href="{{ route('admin.logout') }}">

@@ -1,47 +1,40 @@
+@php use Illuminate\Support\Facades\Storage; @endphp
 @extends('Front.Layouts.front')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 @section('content')
-    {{--    @dd($blogs)--}}
-
-
-    <div class="all">
-        <div class="under-nav">
-            <div class="content">
-                <div class="top-title">
-                    @if ($count === 0)
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <div class="article-container">
+        <div class="top">
+            <div class="top-title">
+                @if ($count === 0)
                     {{ __('Arama sonucu bulunamadı') }}
-                    @else
+                @else
                     {{__('Arama sonucu: ') . $count}}
-                    @endif
-                </div>
-                <div class="bottom-title">
-                </div>
+                @endif
+            </div>
+            <div class="bottom-title">
             </div>
         </div>
-
         <div class="container-article">
             <div class="all-article">
                 @foreach($results as $result)
                     <div class="card" style="width: 18rem;">
-                        <div class="card-body">
+                        <div class="card-body" style="margin-bottom: 30px">
                             <h3 class="card-title">{{$result->title}}</h3>
-{{--                            <p>{{ __('Arama sonucu: ') }}</p>--}}
+                            <p>{{ __('Arama sonucu: ') }}</p>
                             <p class="card-text"><span>{!! Str::limit(strip_tags($result->description, 200)) !!}</span></p>
-                            <a href="" class="btn btn-primary">{{__("Devamını Oku")}}</a>
+                            <a href="{{route('singlePage', ['slug'=>$result->blog->slug])}}" class="btn btn-primary">{{__("Devamını oku")}}</a>
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </div>
-
 @endsection
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('assets/front/css/articles.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/front/css/articles.css')}}">
 @endpush
+

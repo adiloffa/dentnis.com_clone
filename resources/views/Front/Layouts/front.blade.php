@@ -13,10 +13,6 @@
         <ul>
             @foreach($socialNetworks as $socialNetwork)
             <li><a href=""><img src="{{Storage::url($socialNetwork->image)}}" alt=""></a></li>
-
-{{--            <li><a href=""><img src="{{asset('assets/front/images/linkedin.svg')}}" alt=""></a></li>--}}
-{{--            <li><a href=""><img src="{{asset('assets/front/images/instagram.svg')}}" alt=""></a></li>--}}
-{{--            <li><a href=""><img src="{{asset('assets/front/images/youtube.svg')}}" alt=""></a></li>--}}
             @endforeach
         </ul>
     </div>
