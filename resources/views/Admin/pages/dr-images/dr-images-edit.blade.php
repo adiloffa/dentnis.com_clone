@@ -17,7 +17,7 @@
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <input type="hidden" name="dr_image_id" value="{{$dr_image->id}}">
+                    <input type="hidden" name="dr_image_id" value="{{$dr->id}}">
                     <button class="btn btn-success">Update</button>
                 </form>
             </div>

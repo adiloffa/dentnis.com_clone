@@ -95,7 +95,7 @@
     <div class="section2">
         <h2>{{__("Estetik Diş Hekimliği")}}</h2>
         <div class="container1">
-            @foreach($blogs->shuffle()->take(9) as $blog)
+            @foreach($blogs->shuffle()->take(3) as $blog)
                 <a href="{{route('singlePage', ['slug'=>$blog->slug])}}">
                     <div class="image-container">
                         <img src="{{Storage::url($blog->image)}}" alt="Image" style="width: 100%; height: 100%;">

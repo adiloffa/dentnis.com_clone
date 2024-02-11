@@ -114,6 +114,7 @@ class CategoryController extends Controller
         if ($id) {
             // İlgili çevirileri sil
             $id->translations()->delete();
+            $id->blogs()->delete();
             // Takımı sil
             $id->delete();
 
