@@ -25,7 +25,7 @@ class TvProgramsController extends Controller
             'url' => 'required'
         ];
         $request->validate($validationRule);
-        $TVPrograms=new TvPrograms();  //team table'da yeni row yaratdi
+        $TVPrograms=new TvPrograms();
         $TVPrograms->title=$request->input('title');
         $TVPrograms->url=$request->url;
         $TVPrograms->save();
@@ -33,7 +33,7 @@ class TvProgramsController extends Controller
         return redirect()->route('tv-programs')->with('success', 'Has been added successfully!');
     }
 
-    public function edit(TvPrograms $tv)  //{{route('sliderEdit', ['slider'=>$slider->id])}}
+    public function edit(TvPrograms $tv)
     {
         return view ('Admin.pages.TV-Programs.TVProgramsEdit', compact('tv'));
     }
@@ -45,7 +45,6 @@ class TvProgramsController extends Controller
             'url' => 'required'
         ];
         $request->validate($validationRules);
-//        dd($request->input('title'));
         $TVPrograms = TvPrograms::find($request->tv_programs_id);
         $TVPrograms->title = $request->input('title');
         $TVPrograms->url = $request->input('url');

@@ -7,7 +7,6 @@
             <div class="card-body">
                 <form action="{{route('settingsUpdate')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-{{--                    @dd($setting->first->id)--}}
                     @if($setting->first()->top_logo)
                         <img style="width: 100px" src="{{Storage::url($setting->first()->top_logo)}}" alt="">
                     @endif

@@ -40,24 +40,18 @@
 
                     <div class="flex">
                         <input type="text" name="full_name" placeholder="{{__("Ad, Soyad")}}" value="{{old('full_name')}}">
-{{--                        @error('full_name'){{$message}}@enderror--}}
                         <input type="number" name="phone" placeholder="{{__("Telefon")}}" value="{{old('phone')}}">
-{{--                        @error('phone'){{$message}}@enderror--}}
                     </div>
                     <input type="email" name="email" placeholder="{{__("Email")}}" value="{{old('email')}}">
-{{--                    @error('email'){{$message}}@enderror--}}
 
                     <input type="text" name="subject" placeholder="{{__("Konu")}}" value="{{old('subject')}}">
-{{--                    @error('subject'){{$message}}@enderror--}}
 
                     <textarea cols="40" rows="5" name="message" placeholder="{{__("Mesaj")}}">{{old('message')}}</textarea>
-{{--                    @error('message'){{$message}}@enderror--}}
 
                     <label for="">
                         <input type="checkbox" name="kvkk" value="1" {{ old('kvkk') ? 'checked' : '' }}>
                         <a>{{__("KVKK")}}</a> {{__("'yı okudum, kabul ediyorum")}}.
                     </label>
-{{--                    @error('kvkk'){{$message}}@enderror--}}
 
                     <button>{{__("Gönder")}}</button>
                 </form>
@@ -77,7 +71,6 @@
                     <p><strong>{{__("Telefon")}}:</strong> <a href="">{{$item->phone}} </a></p>
                     <p><strong>{{__("Mail")}}:</strong> <a href="">{{$item->mail}}</a></p>
                 @endforeach
-                {{--                <p><strong>İnstagram:</strong> <a href="">@doktornarin</a></p>--}}
             </div>
             <span>
 

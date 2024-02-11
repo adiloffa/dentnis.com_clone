@@ -15,8 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         $lang='tr';
-        $categories = Category::with(['translations' => function ($query) use ($lang) {   //teams modelin icindeki method:translations
-            $query->whereHas('language', function ($subquery) use ($lang) {     //burdaki language, TeamTranslation'daki methodun adidi
+        $categories = Category::with(['translations' => function ($query) use ($lang) {
+            $query->whereHas('language', function ($subquery) use ($lang) {
                 $subquery->where('lang', "$lang");
             });
         }])->get();
@@ -37,21 +37,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // fields from team_translations
         $langs = config('app.languages');
         foreach ($langs as $lang) {
             $validationRule["$lang.name"] = 'required';
         }
         $request->validate($validationRule);
-//        dd($request->all());
 
         $category=new Category();
         $category->save();
         foreach ($langs as $lang) {
             $language = Language::where('lang', $lang)->first();
-//            dd($language);
             $langId=$language->id;
-            $categoryTranslation=new CategoryTranslation(); //teamtranslation
+            $categoryTranslation=new CategoryTranslation();
             $categoryTranslation->name=$request->input("$lang.name");
             $categoryTranslation->category_id=$category->id;
             $categoryTranslation->language_id=$langId;
@@ -87,16 +84,13 @@ class CategoryController extends Controller
             $validationRules["$lang.name"] = 'required';
         }
         $request->validate($validationRules);
-//        dd($request->all());
 
         $category = Category::find($request->input('category_id'));
-//        $category->save();
 
         foreach (config('app.languages') as $lang) {
             $language = Language::where('lang', $lang)->first();
             $langId = $language->id;
 
-            // Eğer dil çevirisi zaten varsa, güncelle; yoksa oluştur
             $categoryTranslation = CategoryTranslation::updateOrCreate(
                 ['category_id' => $category->id, 'language_id' => $langId],
                 ['name' => $request->input("$lang.name")]
@@ -112,10 +106,8 @@ class CategoryController extends Controller
     public function destroy(Category $id)
     {
         if ($id) {
-            // İlgili çevirileri sil
             $id->translations()->delete();
             $id->blogs()->delete();
-            // Takımı sil
             $id->delete();
 
             return redirect()->back()->with('success', 'Has been deleted successfully!');

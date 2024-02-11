@@ -108,16 +108,13 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.7/summernote.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                // Initialize Bootstrap Tabs
                 var tabs = new bootstrap.Tab(document.querySelector('#custom-tabs-one-home-tab'));
                 tabs.show();
 
-                // Initialize Summernote Editor
                 @foreach(config('app.languages') as $index => $lang)
                 new Summernote($('#summernote{{$index}}'), {
                     placeholder: 'desc{{$lang}}',
                     height: 200,
-                    // Add other Summernote options as needed
                 });
                 @endforeach
             });

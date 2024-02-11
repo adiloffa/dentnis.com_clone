@@ -25,15 +25,12 @@
         src="https://dentnis.com/wp-content/plugins/country-phone-field-contact-form-7/assets/js/intlTelInput.min.js?ver=c8ff212d89477405996f59b73f0133ef"
         id="nbcpf-intlTelInput-script-js" defer=""></script>
 <script type="text/javascript" id="nbcpf-countryFlag-script-js-extra">
-    /* <![CDATA[ */
     var nbcpf = {"ajaxurl": "https:\/\/dentnis.com\/wp-admin\/admin-ajax.php"};
-    /* ]]> */
 </script>
 <script type="text/javascript"
         src="https://dentnis.com/wp-content/plugins/country-phone-field-contact-form-7/assets/js/countrySelect.min.js?ver=c8ff212d89477405996f59b73f0133ef"
         id="nbcpf-countryFlag-script-js" defer=""></script>
 <script type="text/javascript" id="nbcpf-countryFlag-script-js-after">
-    /* <![CDATA[ */
     (function ($) {
         $(function () {
             $(".wpcf7-countrytext").countrySelect({});
@@ -48,13 +45,10 @@
 
             $(".wpcf7-phonetext").each(function () {
                 var hiddenInput = $(this).attr('name');
-                //console.log(hiddenInput);
                 $("input[name=" + hiddenInput + "-country-code]").val($(this).val());
             });
 
             $(".wpcf7-phonetext").on("countrychange", function () {
-                // do something with iti.getSelectedCountryData()
-                //console.log(this.value);
                 var hiddenInput = $(this).attr("name");
                 $("input[name=" + hiddenInput + "-country-code]").val(this.value);
 
@@ -73,21 +67,17 @@
                     var country_name = $(this).siblings(".flag-dropdown").find(".country-list li.highlight span.country-name").text();
 
                 var value = $(this).val();
-                //console.log(country_name, value);
                 $(this).val(country_name + value.substring(country_name.length));
             });
 
         });
     })(jQuery);
-    /* ]]> */
 </script>
 <script data-minify="1" type="text/javascript"
         src="https://dentnis.com/wp-content/cache/min/1/wp-content/plugins/duracelltomi-google-tag-manager/dist/js/gtm4wp-form-move-tracker.js?ver=1704803367"
         id="gtm4wp-form-move-tracker-js" defer=""></script>
 <script type="text/javascript" id="ez-toc-scroll-scriptjs-js-extra">
-    /* <![CDATA[ */
     var eztoc_smooth_local = {"scroll_offset": "30"};
-    /* ]]> */
 </script>
 <script type="text/javascript"
         src="https://dentnis.com/wp-content/plugins/easy-table-of-contents/assets/js/smooth_scroll.min.js?ver=2.0.61"
@@ -99,19 +89,16 @@
         src="https://dentnis.com/wp-content/plugins/easy-table-of-contents/vendor/sticky-kit/jquery.sticky-kit.min.js?ver=1.9.2"
         id="ez-toc-jquery-sticky-kit-js"></script>
 <script type="text/javascript" id="ez-toc-js-js-extra">
-    /* <![CDATA[ */
     var ezTOC = {
         "smooth_scroll": "1",
         "scroll_offset": "30",
         "fallbackIcon": "<span class=\"\"><span class=\"eztoc-hide\" style=\"display:none;\">Toggle<\/span><span class=\"ez-toc-icon-toggle-span\"><svg style=\"fill: #999;color:#999\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" class=\"list-377408\" width=\"20px\" height=\"20px\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z\" fill=\"currentColor\"><\/path><\/svg><svg style=\"fill: #999;color:#999\" class=\"arrow-unsorted-368013\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"10px\" height=\"10px\" viewBox=\"0 0 24 24\" version=\"1.2\" baseProfile=\"tiny\"><path d=\"M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z\"\/><\/svg><\/span><\/span>"
     };
-    /* ]]> */
 </script>
 <script type="text/javascript"
         src="https://dentnis.com/wp-content/plugins/easy-table-of-contents/assets/js/front.min.js?ver=2.0.61-1704803135"
         id="ez-toc-js-js" defer=""></script>
 <script type="text/javascript" id="ez-toc-js-js-after">
-    /* <![CDATA[ */
     let mobileContainer = document.querySelector("#mobile.vc_row-fluid");
     if (document.querySelectorAll("#mobile.vc_row-fluid").length > 0) {
         let ezTocContainerUL = mobileContainer.querySelectorAll('.ez-toc-link');
@@ -124,18 +111,14 @@
             ezTocContainerUL[i].setAttribute('href', anchorHREF + '-' + uniqID);
         }
     }
-    /* ]]> */
 </script>
 <script type="text/javascript" id="daim-track-internal-links-js-before">
-    /* <![CDATA[ */
     window.DAIM_PARAMETERS = {ajax_url: "https://dentnis.com/wp-admin/admin-ajax.php", nonce: "671b06f3fc"};
-    /* ]]> */
 </script>
 <script data-minify="1" type="text/javascript"
         src="https://dentnis.com/wp-content/cache/min/1/wp-content/plugins/interlinks-manager/public/assets/js/track-internal-links.js?ver=1699444885"
         id="daim-track-internal-links-js" defer=""></script>
 <script type="text/javascript" id="rocket-browser-checker-js-after">
-    /* <![CDATA[ */
     "use strict";
     var _createClass = function () {
         function defineProperties(target, props) {
@@ -202,10 +185,8 @@
             }
         }]), RocketBrowserCompatibilityChecker
     }();
-    /* ]]> */
 </script>
 <script type="text/javascript" id="rocket-preload-links-js-extra">
-    /* <![CDATA[ */
     var RocketPreloadLinksConfig = {
         "excludeUris": "\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/",
         "usesTrailingSlash": "1",
@@ -215,10 +196,8 @@
         "onHoverDelay": "100",
         "rateThrottle": "3"
     };
-    /* ]]> */
 </script>
 <script type="text/javascript" id="rocket-preload-links-js-after">
-    /* <![CDATA[ */
     (function () {
         "use strict";
         var r = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (e) {
@@ -340,7 +319,6 @@
         src="https://dentnis.com/wp-includes/js/jquery/ui/accordion.min.js?ver=1.13.2"
         id="jquery-ui-accordion-js" defer=""></script>
 <script type="text/javascript" id="mfn-plugins-js-extra">
-    /* <![CDATA[ */
     var mfn = {
         "mobileInit": "1240",
         "parallax": "translate3d",
@@ -349,7 +327,6 @@
         "slider": {"blog": 0, "clients": 0, "offer": 0, "portfolio": 0, "shop": 0, "slider": 0, "testimonials": 0},
         "ajax": "https:\/\/dentnis.com\/wp-admin\/admin-ajax.php"
     };
-    /* ]]> */
 </script>
 <script data-minify="1" type="text/javascript"
         src="https://dentnis.com/wp-content/cache/min/1/wp-content/themes/betheme/js/plugins.js?ver=1699444885"
@@ -382,7 +359,6 @@
         src="https://dentnis.com/wp-content/cache/min/1/wp-content/themes/betheme-child/assets/swiper.js?ver=1699444886"
         id="ba-sliderminjs-js" defer=""></script>
 <script type="text/javascript" id="thickbox-js-extra">
-    /* <![CDATA[ */
     var thickboxL10n = {
         "next": "Sonraki >",
         "prev": "< \u00d6nceki",
@@ -392,7 +368,6 @@
         "noiframes": "Bu \u00f6zellik i\u00e7 \u00e7er\u00e7evelere gerek duyar. Taray\u0131c\u0131n\u0131z\u0131n i\u00e7 \u00e7er\u00e7eveler \u00f6zelli\u011fi kapat\u0131lm\u0131\u015f ya da taray\u0131c\u0131n\u0131z bu \u00f6zelli\u011fi  desteklemiyor.",
         "loadingAnimation": "https:\/\/dentnis.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif"
     };
-    /* ]]> */
 </script>
 <script data-minify="1" type="text/javascript"
         src="https://dentnis.com/wp-content/cache/min/1/wp-includes/js/thickbox/thickbox.js?ver=1699444886"
@@ -603,7 +578,6 @@
 
     }, 2000);
 
-    // you can handle state changing
 
 </script>
 <script>"use strict";

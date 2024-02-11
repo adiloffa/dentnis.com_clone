@@ -22,20 +22,20 @@ class SocialNetworkController extends Controller
     public function store(Request $request)
     {
         $validationRule=[
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp,svg|max:2048',   //input'un name='image'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp,svg|max:2048',
             'url' => 'required'
         ];
 
         $request->validate($validationRule);
-        $socialNetwork=new SocialNetwork();  //team table'da yeni row yaratdi
-        $socialNetwork->image=$request->file('image')->store('social-network', 'public');    //yuxardaki validateRule icindeki img ile eynidi    //storage->app->public folder yaradir
+        $socialNetwork=new SocialNetwork();
+        $socialNetwork->image=$request->file('image')->store('social-network', 'public');
         $socialNetwork->url=$request->url;
         $socialNetwork->save();
 
         return redirect()->route('social-networks')->with('success', 'Has been added successfully!');
     }
 
-    public function edit(SocialNetwork $social)  //{{route('sliderEdit', ['slider'=>$slider->id])}}
+    public function edit(SocialNetwork $social)
     {
         return view ('Admin.pages.social-networks.socialNetworkEdit', compact('social'));
     }

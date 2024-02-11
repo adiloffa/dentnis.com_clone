@@ -16,8 +16,8 @@ class TeamController extends Controller
     public function index()
     {
         $lang='tr';
-        $teams = Team::with(['translations' => function ($query) use ($lang) {   //teams modelin icindeki method:translations
-            $query->whereHas('language', function ($subquery) use ($lang) {     //burdaki language, TeamTranslation'daki methodun adidi
+        $teams = Team::with(['translations' => function ($query) use ($lang) {
+            $query->whereHas('language', function ($subquery) use ($lang) {
                 $subquery->where('lang', "$lang");
             });
         }])->get();
@@ -38,13 +38,11 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //fields from teams
         $validationRules=[
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',   //input'un name='image'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'name' => 'required'
         ];
 
-        // fields from team_translations
         $langs = config('app.languages');
         foreach ($langs as $lang) {
             $validationRules["$lang.position"] = 'required';
@@ -52,7 +50,7 @@ class TeamController extends Controller
         $request->validate($validationRules);
 //        dd($request->all());
         $team=new Team();  //team table'da yeni row yaratdi
-        $team->image=$request->file('image')->store('team_profiles', 'public');    //yuxardaki validateRule icindeki img ile eynidi    //storage->app->public folder yaradir
+        $team->image=$request->file('image')->store('team_profiles', 'public');
         $team->title=$request->input('name');
         $team->save();
 
@@ -61,7 +59,7 @@ class TeamController extends Controller
 //            dd($language);
             $langId=$language->id;
 
-            $teamTranslation=new TeamTranslation(); //teamtranslation
+            $teamTranslation=new TeamTranslation();
             $teamTranslation->position=$request->input("$lang.position");
             $teamTranslation->teams_id=$team->id;
             $teamTranslation->language_id=$langId;
@@ -106,7 +104,6 @@ class TeamController extends Controller
 
         $team = Team::find($request->input('team_id'));
 
-// Eğer yeni kayıt ise dosyayı kaydet
         if ($request->hasFile('image')) {
             if ($team->image && Storage::disk('public')->exists($team->image)) {
                 Storage::disk('public')->delete($team->image);
@@ -121,7 +118,6 @@ class TeamController extends Controller
             $language = Language::where('lang', $lang)->first();
             $langId = $language->id;
 
-            // Eğer dil çevirisi zaten varsa, güncelle; yoksa oluştur
             $teamTranslation = TeamTranslation::updateOrCreate(
                 ['teams_id' => $team->id, 'language_id' => $langId],
                 ['position' => $request->input("$lang.position")]
@@ -137,13 +133,10 @@ class TeamController extends Controller
     public function destroy(Team $id)
     {
         if ($id) {
-            // İlgili çevirileri sil
             $id->translations()->delete();
-//          Takım resmini storage'dan sil
             if (Storage::disk('public')->exists($id->image)) {
                 Storage::disk('public')->delete($id->image);
             }
-            // Takımı sil
             $id->delete();
 
             return redirect()->back()->with('success', 'Has been deleted successfully!');

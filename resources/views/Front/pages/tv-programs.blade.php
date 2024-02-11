@@ -32,7 +32,6 @@
 @endsection
 
 @push('styles')
-{{--    <link rel="stylesheet" href="{{ asset('assets/front/css/articles.css')}}">--}}
     <link rel="stylesheet" href="{{ asset('assets/front/css/tvPrograms.css')}}">
 @endpush
 

@@ -18,8 +18,8 @@ class QuoteController extends Controller
         $rowCount = Quotes::count();
 //        dd($rowCount);
         $lang='tr';
-        $quotes = Quotes::with(['translations' => function ($query) use ($lang) {   //teams modelin icindeki method:translations
-            $query->whereHas('language', function ($subquery) use ($lang) {     //burdaki language, TeamTranslation'daki methodun adidi
+        $quotes = Quotes::with(['translations' => function ($query) use ($lang) {
+            $query->whereHas('language', function ($subquery) use ($lang) {
                 $subquery->where('lang', "$lang");
             });
         }])->get();
@@ -40,31 +40,26 @@ class QuoteController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-        //fields from quotes
         $validationRules=[
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',   //input'un name='image'
         ];
 
-        // fields from quote_translations
         $langs = config('app.languages');
         foreach ($langs as $lang) {
             $validationRules["$lang.title"] = 'required';
             $validationRules["$lang.description"] = 'required';
         }
         $request->validate($validationRules);
-//        dd($request->all());
 
-        $quote=new Quotes();  //quotes table'da yeni row yaratdi
-        $quote->image=$request->file('image')->store('quotes', 'public');    //yuxardaki validateRule icindeki img ile eynidi    //storage->app->public folder yaradir
+        $quote=new Quotes();
+        $quote->image=$request->file('image')->store('quotes', 'public');
         $quote->save();
 
         foreach ($langs as $lang) {
             $language = Language::where('lang', $lang)->first();
-//            dd($language);
             $langId=$language->id;
 
-            $quoteTranslation=new QuotesTranslation(); //teamtranslation
+            $quoteTranslation=new QuotesTranslation();
             $quoteTranslation->title=$request->input("$lang.title");
             $quoteTranslation->description=$request->input("$lang.description");
             $quoteTranslation->quote_id=$quote->id;
@@ -103,24 +98,18 @@ class QuoteController extends Controller
             $validationRules["$lang.description"] = 'required';
         }
         $request->validate($validationRules);
-//        dd($request->all());
 
         $quote = Quotes::find($request->input('quote_id'));
 
-// Eğer yeni kayıt ise dosyayı kaydet
         if ($request->hasFile('image')) {
             $quote->image = $request->file('image')->store('quotes', 'public');
         }
 
-//        $quote->title = $request->input('title');
-//        $quote->description = $request->input('description');
         $quote->save();
 
         foreach (config('app.languages') as $lang) {
             $language = Language::where('lang', $lang)->first();
             $langId = $language->id;
-//            dd($request->input("$lang.description"));
-            // Eğer dil çevirisi zaten varsa, güncelle; yoksa oluştur
             $quoteTranslation = QuotesTranslation::updateOrCreate(
                 ['quote_id' => $quote->id, 'language_id' => $langId],
                 ['title' => $request->input("$lang.title"),
@@ -137,9 +126,7 @@ class QuoteController extends Controller
     public function destroy(Quotes $id)
     {
         if ($id) {
-            // İlgili çevirileri sil
             $id->translations()->delete();
-//          Takım resmini storage'dan sil
             if (Storage::disk('public')->exists($id->image)) {
                 Storage::disk('public')->delete($id->image);
             }

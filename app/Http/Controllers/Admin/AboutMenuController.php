@@ -16,8 +16,8 @@ class AboutMenuController extends Controller
     public function index()
     {
         $lang='tr';
-        $aboutMenu = AboutMenu::with(['translations' => function ($query) use ($lang) {   //teams modelin icindeki method:translations
-            $query->whereHas('language', function ($subquery) use ($lang) {     //burdaki language, TeamTranslation'daki methodun adidi
+        $aboutMenu = AboutMenu::with(['translations' => function ($query) use ($lang) {
+            $query->whereHas('language', function ($subquery) use ($lang) {
                 $subquery->where('lang', "$lang");
             });
         }])->get();
@@ -32,7 +32,6 @@ class AboutMenuController extends Controller
 
     public function store(Request $request)
     {
-        // fields from team_translations
         $langs = config('app.languages');
         foreach ($langs as $lang) {
             $validationRule["$lang.title"] = 'required';
@@ -77,7 +76,6 @@ class AboutMenuController extends Controller
             $language = Language::where('lang', $lang)->first();
             $langId = $language->id;
 
-            // Eğer dil çevirisi zaten varsa, güncelle; yoksa oluştur
             $aboutMenuTranslation = AboutMenuTranslation::updateOrCreate(
                 ['about_menu_id' => $aboutmenu->id, 'language_id' => $langId],
                 ['title' => $request->input("$lang.title")]
@@ -90,9 +88,7 @@ class AboutMenuController extends Controller
     public function destroy(AboutMenu $id)
     {
         if ($id) {
-            // İlgili çevirileri sil
             $id->translations()->delete();
-            // Takımı sil
             $id->delete();
 
             return redirect()->back()->with('success', 'Has been deleted successfully!');

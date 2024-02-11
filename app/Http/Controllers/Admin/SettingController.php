@@ -31,7 +31,7 @@ class SettingController extends Controller
         ];
         $request->validate($validationRule);
 //        dd($request->all());
-        $setting=new Setting();  //team table'da yeni row yaratdi
+        $setting=new Setting();
         $setting->top_logo=$request->file('top_logo')->store('settings', 'public');
         $setting->bottom_logo=$request->file('bottom_logo')->store('settings', 'public');
         $setting->address=$request->input('address');

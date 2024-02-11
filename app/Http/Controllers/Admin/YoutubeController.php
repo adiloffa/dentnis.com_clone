@@ -69,7 +69,6 @@ class YoutubeController extends Controller
         ];
 
         $request->validate($validationRule);
-//        dd($request->all());
 
         $youtube = Youtubes::find($request->youtube_id);
 

@@ -30,9 +30,7 @@
                     <td>{{$team->id}}</td>
                     <td><img src="{{Storage::url($team->image)}}" alt=""></td>
                     <td>{{$team->title}}</td>
-{{--                    @foreach($team->translations as $item)--}}
                     <td>{{$team->translation->position}}</td>
-{{--                    @endforeach--}}
                     <td class="edit-delete">
                         <a href="{{route('teamEdit', ['team'=>$team->id])}}"><button><i id="edit-icon" class="fa-solid fa-pen"></i><span>Edit</span></button></a>
                         <form action="{{ route('teamDelete', ['id' => $team->id]) }}" method="post" class="d-inline">

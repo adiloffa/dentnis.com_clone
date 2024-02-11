@@ -8,7 +8,6 @@
                 <form action="{{route('sliderUpdate')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @if($slider->image)
-{{--                        @dd($slider->image)--}}
                         <img style="width: 200px" src="{{Storage::url($slider->image)}}" alt="">
                     @endif
                     <div class="form-group py-3">

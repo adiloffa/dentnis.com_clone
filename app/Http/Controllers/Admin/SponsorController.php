@@ -31,13 +31,12 @@ class SponsorController extends Controller
     public function store(Request $request)
     {
         $validationRule=[
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',   //input'un name='image'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ];
-
         $request->validate($validationRule);
 //        dd($request->all());
-        $sponsor=new Sponsors();  //team table'da yeni row yaratdi
-        $sponsor->image=$request->file('image')->store('sponsors', 'public');    //yuxardaki validateRule icindeki img ile eynidi    //storage->app->public folder yaradir
+        $sponsor=new Sponsors();
+        $sponsor->image=$request->file('image')->store('sponsors', 'public');
         $sponsor->save();
 
         return redirect()->route('sponsors')->with('success', 'Has been added successfully!');

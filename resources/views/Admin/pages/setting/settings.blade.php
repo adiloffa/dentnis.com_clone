@@ -41,11 +41,6 @@
                     <td>{{$setting->phone}}</td>
                     <td class="edit-delete" style="text-align: center">
                         <a href="{{route('settingsEdit', ['setting'=>$setting->id])}}"><button><i id="edit-icon" class="fa-solid fa-pen"></i><span>Edit</span></button></a>
-{{--                        <form action="{{ route('settingsDelete', ['id' => $setting->id]) }}" method="post" class="d-inline">--}}
-{{--                            @csrf--}}
-{{--                            @method('DELETE')--}}
-{{--                            <button type="submit" onclick="return confirm('Are you sure?')"><i class="fa-solid fa-trash"></i>Delete</button>--}}
-{{--                        </form>--}}
                     </td>
             @endforeach
             </tbody>

@@ -12,8 +12,8 @@ class MainDoctorController extends Controller
     public function index()
     {
         $lang='tr';
-        $main_doctor = MainDoctor::with(['translations' => function ($query) use ($lang) {   //teams modelin icindeki method:translations
-            $query->whereHas('language', function ($subquery) use ($lang) {     //burdaki language, TeamTranslation'daki methodun adidi
+        $main_doctor = MainDoctor::with(['translations' => function ($query) use ($lang) {
+            $query->whereHas('language', function ($subquery) use ($lang) {
                 $subquery->where('lang', "$lang");
             });
         }])->get();
@@ -28,21 +28,18 @@ class MainDoctorController extends Controller
 
     public function store(Request $request)
     {
-        // fields from team_translations
         $langs = config('app.languages');
         foreach ($langs as $lang) {
             $validationRule["$lang.description"] = 'required';
         }
         $request->validate($validationRule);
-//        dd($request->all());
 
         $main_doctor=new MainDoctor();
         $main_doctor->save();
         foreach ($langs as $lang) {
             $language = Language::where('lang', $lang)->first();
-//            dd($language);
             $langId=$language->id;
-            $main_doctor_translation=new MainDoctorTranslation(); //teamtranslation
+            $main_doctor_translation=new MainDoctorTranslation();
             $main_doctor_translation->description=$request->input("$lang.description");
             $main_doctor_translation->main_doctor_id=$main_doctor->id;
             $main_doctor_translation->language_id=$langId;
@@ -64,16 +61,13 @@ class MainDoctorController extends Controller
             $validationRules["$lang.description"] = 'required';
         }
         $request->validate($validationRules);
-//        dd($request->all());
 
         $main_doctor = MainDoctor::find($request->input('main_doctor_id'));
-//        $category->save();
 
         foreach (config('app.languages') as $lang) {
             $language = Language::where('lang', $lang)->first();
             $langId = $language->id;
 
-            // Eğer dil çevirisi zaten varsa, güncelle; yoksa oluştur
             $main_doctor_translation = MainDoctorTranslation::updateOrCreate(
                 ['main_doctor_id' => $main_doctor->id, 'language_id' => $langId],
                 ['description' => $request->input("$lang.description")]
@@ -85,9 +79,7 @@ class MainDoctorController extends Controller
     public function destroy(MainDoctor $id)
     {
         if ($id) {
-            // İlgili çevirileri sil
             $id->translations()->delete();
-            // Takımı sil
             $id->delete();
 
             return redirect()->back()->with('success', 'Has been deleted successfully!');

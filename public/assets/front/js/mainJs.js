@@ -31,7 +31,7 @@ function prevImage() {
     showImage(currentIndex);
 }
 
-setInterval(nextImage, 3000); // Resimler her 3 saniyede bir değişecek.
+setInterval(nextImage, 3000); // 3san'den bir img'ler deyishir
 
 
 var swiper = new Swiper(".mySwiper.my", {
@@ -46,14 +46,6 @@ var swiper = new Swiper(".mySwiper.my", {
         prevEl: ".swiper-button-prev",
     },
     breakpoints: {
-        // 640: {
-        //     slidesPerView: 4,
-        //     spaceBetween: 20,
-        // },
-        // 768: {
-        //     slidesPerView: 4,
-        //     spaceBetween: 40,
-        // },
         1024: {
             slidesPerView: 4,
             spaceBetween: 10,
@@ -67,7 +59,7 @@ var swiper = new Swiper(".mySwiper.my2", {
     slidesPerGroup: 1,
     speed: 1000,
     autoplay: {
-        delay: 2000, // 1 saniye
+        delay: 2000,
     },
     loop: true,
     pagination: {
@@ -79,14 +71,6 @@ var swiper = new Swiper(".mySwiper.my2", {
         prevEl: ".swiper-button-prev.my2",
     },
     breakpoints: {
-        // 640: {
-        //     slidesPerView: 4,
-        //     spaceBetween: 20,
-        // },
-        // 768: {
-        //     slidesPerView: 4,
-        //     spaceBetween: 40,
-        // },
         1024: {
             slidesPerView: 4,
             spaceBetween: 50,

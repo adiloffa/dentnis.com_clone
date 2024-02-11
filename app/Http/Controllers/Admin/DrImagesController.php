@@ -22,13 +22,13 @@ class DrImagesController extends Controller
     public function store(Request $request)
     {
         $validationRule=[
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',   //input'un name='image'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ];
 
         $request->validate($validationRule);
 //        dd($request->all());
-        $dr_image=new DrImages();  //team table'da yeni row yaratdi
-        $dr_image->image=$request->file('image')->store('dr-images', 'public');    //yuxardaki validateRule icindeki img ile eynidi    //storage->app->public folder yaradir
+        $dr_image=new DrImages();
+        $dr_image->image=$request->file('image')->store('dr-images', 'public');    //yuxaridaki validateRule icindeki img ile eynidi    //storage->app->public folder yaradir
         $dr_image->save();
 
         return redirect()->route('dr-images')->with('success', 'Has been added successfully!');

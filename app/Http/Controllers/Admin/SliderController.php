@@ -31,14 +31,12 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $validationRule=[
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp,svg|max:2048',   //input'un name='image'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp,svg|max:2048',
         ];
 
         $request->validate($validationRule);
-//        dd($request->all());
-        $slider=new Slider();  //team table'da yeni row yaratdi
-        $slider->image=$request->file('image')->store('slider', 'public');    //yuxardaki validateRule icindeki img ile eynidi    //storage->app->public folder yaradir
-//        $team->title=$request->input('name');
+        $slider=new Slider();
+        $slider->image=$request->file('image')->store('slider', 'public');
         $slider->save();
 
         return redirect()->route('slider')->with('success', 'Has been added successfully!');

@@ -26,9 +26,6 @@
             @foreach($categories as $category)
                 <tr>
                     <td>{{$category->id}}</td>
-{{--                    @foreach($category->translations as $item)--}}
-{{--                        <td>{{$item->name}}</td>--}}
-{{--                    @endforeach--}}
                     <td>{{$category->translations->first()->name}}</td>
 
                     <td class="edit-delete">

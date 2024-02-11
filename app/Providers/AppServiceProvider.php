@@ -28,8 +28,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         view()->composer(['Front.*','Admin.*'], function ($view) {
-//        view()->composer(['Front.*'], function ($view) {
-            $lang=session()->get('language','tr');    //default deyer, lang sechilmeyibse site tr achilir
+            $lang=session()->get('language','tr');    //default deyer, lang sechilmeyibse tr
             App::setLocale($lang);
 //            $allCategories=Category::with(['translations','blogs.translations'])->get();
             $allCategories = Category::with([

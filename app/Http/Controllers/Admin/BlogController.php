@@ -121,11 +121,9 @@ class BlogController extends Controller
             $validationRules["$lang.description"] = 'required|string';
         }
         $request->validate($validationRules);
-//        dd('request',$request->all());
 
         $blog = Blog::find($request->input('blog_id'));
 
-        // Eğer yeni kayıt ise dosyayı kaydet
         if ($request->hasFile('image')) {
             if (Storage::disk('public')->exists($blog->image)) {
                 Storage::disk('public')->delete($blog->image);

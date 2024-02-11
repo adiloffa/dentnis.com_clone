@@ -85,48 +85,37 @@
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // DOM tamamen yüklendiğinde bu kod çalışır
         var toggleBtn = document.querySelector('.toggle-btn');
         var navbar = document.querySelector('.navbar>nav');
 
-        // Toggle butonuna tıklandığında navbar'ı göster/gizle
         toggleBtn.addEventListener('click', function () {
             if (navbar.style.left === '-700px' || navbar.style.left === '') {
                 navbar.style.display = 'block';
                 navbar.style.left = '0';
-                toggleBtn.textContent = '✕'; // Close ikonu
+                toggleBtn.textContent = '✕';
             } else {
                 navbar.style.left = '-700px';
                 navbar.style.display = 'none !important';
-                toggleBtn.textContent = '☰'; // Toggle menü ikonu
+                toggleBtn.textContent = '☰';
             }
         });
     });
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        // Her toggle-menu öğesini seç
         const toggleIcons = document.querySelectorAll(".toggle-icon");
 
-        // Her toggle-menu için tıklama olayı ekle
         toggleIcons.forEach(function(toggleIcon) {
             toggleIcon.addEventListener("click", function(e) {
-                e.preventDefault(); // Sayfanın yenilenmesini engelle
+                e.preventDefault();
 
-                // İlgili alt menüyü seç
                 const submenu = toggleIcon.parentElement.nextElementSibling;
-
-                // Alt menü durumunu kontrol et
                 const isOpen = submenu.classList.contains("open");
-
-                // Alt menüyü aç/kapat
                 if (isOpen) {
-                    // Alt menü zaten açık, kapat
                     submenu.style.maxHeight = 0;
                     submenu.classList.remove("open");
                     toggleIcon.textContent = "+";
                 } else {
-                    // Alt menü kapalı, aç
                     submenu.style.maxHeight = submenu.scrollHeight + "px";
                     submenu.classList.add("open");
                     toggleIcon.textContent = "-";
