@@ -90,7 +90,7 @@ class YoutubeController extends Controller
 
             return redirect()->back()->with('success', 'Has been deleted successfully!');
         } else {
-            return redirect()->back()->with('error', 'Sponsor not found.');
+            return redirect()->back()->with('error', 'Youtube link not found.');
         }
     }
 }

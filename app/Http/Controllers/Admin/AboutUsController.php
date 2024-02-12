@@ -87,7 +87,7 @@ class AboutUsController extends Controller
 
             return redirect()->back()->with('success', 'Has been deleted successfully!');
         } else {
-            return redirect()->back()->with('error', 'Team not found.');
+            return redirect()->back()->with('error', 'About Us not found.');
         }
     }
 }

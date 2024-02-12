@@ -64,7 +64,7 @@ class DrImagesController extends Controller
 
             return redirect()->back()->with('success', 'Has been deleted successfully!');
         } else {
-            return redirect()->back()->with('error', 'Sponsor not found.');
+            return redirect()->back()->with('error', 'Dr Image not found.');
         }
     }
 }
